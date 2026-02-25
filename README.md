@@ -35,7 +35,7 @@ Front-only Live App: https://m4-fe.vercel.app/
 - **PostgreSQL**
 
 ### Other Tools
-- **Vercel** (for deployment, if applicable)
+- **Vercel**
 
 ---
 
