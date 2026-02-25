@@ -1,54 +1,36 @@
-# 🛒 E-Commerce Platform (Next.js Full-Stack)
+# 🛒 Ecommerce Platform
 
-A full-stack e-commerce application built with **Next.js, TypeScript, and PostgreSQL**.
-
-This project demonstrates product management, authentication flows, order handling, and backend API design using modern full-stack practices.
+> A full-stack e-commerce platform built with **Next.js**, **React**, **TypeScript**, **PostgreSQL**, and **Yup**. Browse products, manage your cart, place orders, and track your order history — with a clean separation between a Next.js frontend and a TypeScript REST API backend.
 
 ---
 
-## 🚀 Live Demo
+<!-- TO BE UPDATED WITH SCREENSHOTS OF THE PROJECT
+## 📸 Screenshots
 
-Front-only Live App: https://m4-fe.vercel.app/
+> _Add screenshots of the platform here — e.g. the product catalog, shopping cart, and order history pages._
 
 ---
+-->
 
-## 📌 Features
+## ✨ Features
 
-- 👤 User registration and authentication
-- 🛍️ Product listing and details page
-- 🛒 Add to cart functionality
-- 💳 Order creation flow
-- 📦 Product, user, and order management APIs
-- ✅ Backend validation and structured error handling
+- **User Authentication** — Sign up, log in, and access protected routes via JWT
+- **Product Catalog** — Browse and search available products
+- **Shopping Cart** — Add, update, and remove items before checkout
+- **Order History** — View placed orders and their full details
+- **Form Validation** — Schema-based validation with Yup throughout the frontend
+- **Layered Backend Architecture** — Express API organized by controllers, services, repositories, entities, DTOs, middlewares, and routes
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Frontend & Backend
-- **Next.js**
-- **TypeScript**
-- **React**
-- **API Routes (REST)**
-
-### Database
-- **PostgreSQL**
-
-### Other Tools
-- **Vercel**
-
----
-
-## 🏗️ Architecture Overview
-
-- Built using **Next.js full-stack capabilities**
-- API Routes handle backend logic
-- PostgreSQL manages relational data
-- TypeScript ensures type safety across the application
-- Clear separation between:
-  - Product logic
-  - Authentication
-  - Order management
+| Layer      | Technology                                      |
+|------------|-------------------------------------------------|
+| Frontend   | Next.js, React, TypeScript, Tailwind CSS        |
+| Backend    | Node.js, Express, TypeScript                    |
+| Database   | PostgreSQL                                      |
+| Validation | Yup                                             |
 
 ---
 
@@ -56,103 +38,125 @@ Front-only Live App: https://m4-fe.vercel.app/
 
 ```
 ecommerce-platform-nextjs/
+├── back/                        # Backend — Node.js + Express REST API
+│   ├── src/
+│   │   ├── config/              # App configuration (env, DB, etc.)
+│   │   ├── controllers/         # Route handler logic
+│   │   ├── dtos/                # Data Transfer Objects
+│   │   ├── entities/            # Database entity definitions
+│   │   ├── helpers/             # Helper functions
+│   │   ├── middlewares/         # Auth and error middleware
+│   │   ├── repositories/        # Data access layer
+│   │   ├── routes/              # Express route declarations
+│   │   ├── services/            # Business logic layer
+│   │   ├── utils/               # Utility functions
+│   │   ├── index.ts             # Backend entry point
+│   │   └── server.ts            # Express server setup
+│   ├── .env.example             # Environment variable template
+│   └── package.json
 │
-├── app/ or pages/        # Next.js routing
-├── components/           # Reusable UI components
-├── lib/                  # Database and utility logic
-├── api/                  # API route handlers
-├── types/                # TypeScript types
-├── public/
-└── README.md
+└── front/                       # Frontend — Next.js App
+    ├── public/                  # Static public assets
+    └── src/
+        ├── app/                 # Next.js App Router pages & layouts
+        ├── components/          # Reusable UI components
+        ├── contexts/            # React context providers (e.g. cart, auth)
+        ├── helpers/             # Client-side helper functions
+        ├── interfaces/          # TypeScript interfaces & types
+        ├── services/            # API call functions
+        └── validators/          # Yup validation schemas
 ```
 
 ---
 
-## 🚧 Getting Started
+## ⚙️ Getting Started
 
-### 1. Clone the repository
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v18 or higher recommended)
+- [npm](https://www.npmjs.com/)
+- [PostgreSQL](https://www.postgresql.org/)
+
+---
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/1LuisVargas/ecommerce-platform-nextjs.git
+cd ecommerce-platform-nextjs
 ```
 
-### 2. Install dependencies
+---
+
+### 2. Set Up the Backend
 
 ```bash
-cd ecommerce-platform-nextjs
+cd back
 npm install
 ```
 
----
+Copy the environment variables template and fill in your values:
 
-### 3. Configure Environment Variables
-
-Create a `.env.local` file:
-
-```
-DATABASE_URL=your_postgresql_connection_string
-NEXTAUTH_SECRET=your_secret_if_applicable
+```bash
+cp .env.example .env
 ```
 
----
+Open `.env` and configure as needed:
 
-### 4. Run the Development Server
+```env
+PORT= # Puerto en el que deseas iniciar la aplicación
+DB_HOST= # Host de la base de datos. Localhost en el caso de tu computadora
+DB_PORT= # Puerto del servidor de la base de datos. 5432 si mantienes la configuración de postgres por defecto
+DB_USER= # Usuario de la base de datos. Por defecto, postgres
+DB_PASSWORD= # Contraseña del usuario de la base de datos
+DB_NAME= # Nombre que le has dado a tu base de datos
+JWT_SECRET= # Clave secreta para la generación de tokens JWT. Puede ser cualquier palabra que desees
+```
+
+Start the backend server:
 
 ```bash
 npm run dev
 ```
 
-The application will be available at:
+The API will be available at `http://localhost:4000`.
 
+---
+
+### 3. Set Up the Frontend
+
+Open a new terminal tab/window:
+
+```bash
+cd front
+npm install
+npm run dev
 ```
-http://localhost:3000
-```
+
+The frontend will be available at `http://localhost:3000`.
+
+> **Tip:** Make sure the backend is running before starting the frontend so that API calls resolve correctly.
 
 ---
 
-## 🔍 API Overview
+## 🔌 API Endpoints
 
-Example endpoints:
+> Base URL: `http://localhost:4000`
 
-- `GET /api/products` → Fetch all products
-- `GET /api/products/:id` → Fetch product details
-- `POST /api/orders` → Create an order
-- `POST /api/auth/*` → Authentication routes (if implemented)
-
-All validation and error handling are performed server-side.
-
----
-
-## 🎯 Learning Objectives
-
-This project demonstrates:
-
-- Full-stack development using Next.js
-- REST API design within Next.js API Routes
-- PostgreSQL relational modeling
-- Authentication and session handling
-- Type-safe development with TypeScript
-- Separation of concerns in scalable applications
+| Method | Endpoint             | Description                  |
+|--------|----------------------|------------------------------|
+| POST   | `/orders`            | Create a new order           |
+| GET    | `/products`          | Get all products             |
+| POST   | `/users/register`    | Register a new user          |
+| POST   | `/users/login`       | Login an existing user       |
+| GET    | `/users/orders`      | Get orders for the user      |
 
 ---
 
-## 📌 Future Improvements
+## 👤 Author
 
-- 🔐 Role-based authentication (admin dashboard)
-- 📊 Order history & analytics
-- 💳 Payment gateway integration (Stripe)
-- 🧪 Unit and integration testing
-- 🐳 Docker containerization
-- 📱 Improved mobile responsiveness
-
----
-
-## 🙌 Contributing
-
-Feel free to fork the project and submit pull requests for improvements.
-
----
-
-## 📜 License
-
-This project is open source and available under the MIT License.
+**Luis Vargas**
+- GitHub: [@1LuisVargas](https://github.com/1LuisVargas)
+- LinkedIn: [@1LuisVargas](https://www.linkedin.com/in/1luisvargas/)
