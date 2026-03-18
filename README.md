@@ -65,6 +65,8 @@ ecommerce-platform-nextjs/
         ├── interfaces/          # TypeScript interfaces & types
         ├── services/            # API call functions
         └── validators/          # Yup validation schemas
+    ├── .env.example             # Environment variable template
+    └── package.json
 ```
 
 ---
@@ -121,17 +123,30 @@ Start the backend server:
 npm run dev
 ```
 
-The API will be available at `http://localhost:4000`.
+The API will be available at `http://localhost:3005` by default.
 
 ---
 
 ### 3. Set Up the Frontend
 
 Open a new terminal tab/window:
-
 ```bash
 cd front
 npm install
+```
+
+Copy the environment variables template and fill in your values:
+```bash
+cp .env.example .env
+```
+
+Open `.env` and configure as needed:
+```env
+NEXT_PUBLIC_API_URL= # URL where the backend API is running. http://localhost:3005 is recommended
+```
+
+Start the frontend server:
+```bash
 npm run dev
 ```
 
@@ -143,7 +158,7 @@ The frontend will be available at `http://localhost:3000`.
 
 ## 🔌 API Endpoints
 
-> Base URL: `http://localhost:4000`
+> Base URL: `http://localhost:3005`
 
 | Method | Endpoint             | Description                  |
 |--------|----------------------|------------------------------|
