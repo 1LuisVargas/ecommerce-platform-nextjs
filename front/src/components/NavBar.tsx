@@ -17,33 +17,49 @@ const NavBar = () => {
   return (
     <nav className="p-4 bg-slate-600">
       <ul className="flex gap-4">
-        <li className="font-bold">
-          <Link href={NavItems.HOME}>Home</Link>
+        <li>
+          <Link className="font-bold cursor-pointer" href={NavItems.HOME}>
+            Home
+          </Link>
         </li>
-        <li className="font-bold">
-          <Link href={NavItems.ORDERS}>Order History</Link>
+        <li>
+          <Link className="font-bold cursor-pointer" href={NavItems.STORE}>
+            Store
+          </Link>
         </li>
         {isAuthenticated ? (
           <>
-            <li className="font-bold">
-              <Link href={NavItems.CART}>Cart</Link>
+            <li>
+              <Link className="font-bold cursor-pointer" href={NavItems.ORDERS}>
+                Order History
+              </Link>
             </li>
-            <li className="font-bold">
+            <li>
+              <Link className="font-bold cursor-pointer" href={NavItems.CART}>
+                Cart
+              </Link>
+            </li>
+            <li>
               {" "}
-              <Link href={NavItems.PROFILE}>Profile</Link>
+              <Link
+                className="font-bold cursor-pointer"
+                href={NavItems.PROFILE}
+              >
+                Profile
+              </Link>
             </li>
-            <li className="font-bold">
+            <li>
               <button
-                onClick={logoutHandler}
                 className="font-bold hover:underline cursor-pointer"
+                onClick={logoutHandler}
               >
                 Logout
               </button>
             </li>
           </>
         ) : (
-          <li className="font-bold hover:underline">
-            <Link href={NavItems.LOGIN}>Login</Link>
+          <li>
+            <Link className="font-bold hover:underline cursor-pointer" href={NavItems.LOGIN}>Login</Link>
           </li>
         )}
       </ul>
