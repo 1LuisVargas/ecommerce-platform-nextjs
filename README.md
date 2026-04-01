@@ -25,12 +25,13 @@
 
 ## 🛠️ Tech Stack
 
-| Layer      | Technology                                      |
-|------------|-------------------------------------------------|
-| Frontend   | Next.js, React, TypeScript, Tailwind CSS        |
-| Backend    | Node.js, Express, TypeScript                    |
-| Database   | PostgreSQL                                      |
-| Validation | Yup                                             |
+| Layer        | Technology                                      |
+|--------------|-------------------------------------------------|
+| Framework    | Next.js (App Router), React, TypeScript         |
+| Styling      | Tailwind CSS                                    |
+| Frontend     | Vercel                                          |
+| Backend      | Render                                          |
+| Database     | Neon (PostgreSQL)                               |
 
 ---
 
