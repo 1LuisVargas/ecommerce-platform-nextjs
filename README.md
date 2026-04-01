@@ -1,4 +1,4 @@
-# 🛒 Ecommerce Platform
+# 🛒 [Ecommerce Platform](https://m4-fe.vercel.app/)
 
 > A full-stack e-commerce platform built with **Next.js**, **React**, **TypeScript**, **PostgreSQL**, and **Yup**. Browse products, manage your cart, place orders, and track your order history — with a clean separation between a Next.js frontend and a TypeScript REST API backend.
 
