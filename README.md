@@ -30,7 +30,7 @@
 | Framework    | Next.js (App Router), React, TypeScript         |
 | Styling      | Tailwind CSS                                    |
 | Frontend     | Vercel                                          |
-| Backend      | Render                                          |
+| Backend      | Northflank                                      |
 | Database     | Neon (PostgreSQL)                               |
 
 ---
